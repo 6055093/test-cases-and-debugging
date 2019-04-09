@@ -1,16 +1,22 @@
 let verifyEquals = require('./verify-equals.js');
 
 // we need 7 test cases. I've provided 2.
-let inputs = [[2, 4], [-3, 3]];
+let inputs = [[2, 4], [-3, 3], [2, 3], [1, 1], [2, 2], [5, 5], [4, 4, 4]];
 
-let outputs = [6, 0];
+let outputs = [6, 0, 5, 2, 4, 10, undefined];
 
 /*
   This function expects an array of 2 numbers as input (e.g. [1,2])
   Make this function return the sum of the two numbers that are passed to it.
   If anything other than an array with 2 numbers is passed, return undefined.
 */
-function f(input) {}
+function f(input) {
+  if (input.length !== 2){
+    return undefined;
+  }
+  sum = input.reduce((a, b) => a + b, 0);
+  return sum;
+}
 
 //This function runs a test. You do not need to change any code under here
 function runTest(i) {
