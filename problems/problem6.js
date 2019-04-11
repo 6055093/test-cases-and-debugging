@@ -2,9 +2,9 @@
 let verifyEquals = require('./verify-equals.js');
 
 // we need 6 test cases.
-let inputs = [['add', 10, 20], ['chair', 20, 10]];
+let inputs = [['add', 10, 20], ['chair', 20, 10], ['mult', 2, 3], ['sub', 20, 10], ['add', 10, 5], ['spoof', 10, 10]];
 
-let outputs = [30];
+let outputs = [30, undefined, 6, 10, 15, undefined];
 
 /*
 The function takes an array. The array has 3 elements. The first element of the array is a string that represents an operation.
@@ -16,7 +16,18 @@ f(["mult", 2, 3]); // 6
 f(["spoof", 10, 10]); // undefined
 
 */
-function f(arr) {}
+function f(arr) {
+  if(arr[0] === 'add'){
+    return arr[1] + arr[2];
+  }
+  if(arr[0] === 'mult'){
+    return arr[1] * arr[2];
+  }
+  if(arr[0] === 'sub'){
+    return arr[1] - arr[2];
+  }
+  return undefined;
+}
 
 //This function runs a test. You do not need to change any code under here
 function runTest(i) {
