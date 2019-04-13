@@ -11,11 +11,11 @@ let outputs = [6, 0, 5, 2, 4, 10, undefined];
   If anything other than an array with 2 numbers is passed, return undefined.
 */
 function f(input) {
-  if (input.length !== 2){
-    return undefined;
+  if (input.length === 2 && typeof input[0] === 'number' && typeof input[1] === 'number'){
+    let sum = input.reduce((a, b) => a + b, 0);
+    return sum;
   }
-  sum = input.reduce((a, b) => a + b, 0);
-  return sum;
+  return undefined;
 }
 
 //This function runs a test. You do not need to change any code under here

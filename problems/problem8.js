@@ -17,13 +17,13 @@ HINTS:
 */
 function f(str) {
   let reverseArray = [];
-  let charArray = str.split('')
+  let charArray = str.split('');
   for(let i = 0; i < str.length; i++){
-    reverseArray.push(charArray.pop())
+    reverseArray.push(charArray.pop());
   }
   reverseArray = reverseArray.join('')
-  console.log(reverseArray)
-  return reverseArray
+  console.log(reverseArray);
+  return reverseArray;
 }
 
 //This function runs a test. You do not need to change any code under here
