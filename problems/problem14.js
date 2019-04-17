@@ -1,9 +1,21 @@
 let verifyEquals = require('./verify-equals.js');
 
 // we need 5 test cases.
-let inputs = [];
+let inputs = [
+  'Lorem ipsumos dolor sit amet consectetur adipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur adipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur adipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur adipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur adipisicing elit. Magni quisquam',
+];
 
-let outputs = [];
+let outputs = [
+  'Lorem ipsumos dolor sit amet consectetur\nadipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur\nadipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur\nadipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur\nadipisicing elit. Magni quisquam',
+  'Lorem ipsumos dolor sit amet consectetur\nadipisicing elit. Magni quisquam',
+];
 
 /*
 Make this function return the input string wrapped to 40 characters per line. 
@@ -26,13 +38,30 @@ Lorem ipsumos dolor sit amet consectetur
 
 even though there is a space before the a in adipisicing
 */
-function f(str) {}
+function f(str) {
+  let result = '';
+  while (str.length > 0) {
+    console.log(str.substring(40, 41));
+    if (str.substring(40, 41) === ' ') {
+      str = str.substring(0, 40) + str.substring(41);
+    }
+    if (str.length < 40) {
+      result += str;
+      break;
+    }
+    result += str.substring(0, 40) + '\n';
+    str = str.substring(40);
+  }
+  return result;
+}
 
 //This function runs a test. You do not need to change any code under here
 function runTest(i) {
   if (i >= inputs.length) throw new Error('You do not have enough test cases');
   let expected = outputs[i];
   let actual = f(inputs[i]);
+  console.log(expected);
+  console.log(actual);
   verifyEquals(expected, actual);
 }
 
